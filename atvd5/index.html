@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/communStyle.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <p>5) Encontrar o dobro de um número caso ele seja positivo e o seu triplo caso seja negativo,imprimindo o resultado.</p>
+            <label for="nmr">Número:</label>
+            <input type="number" id="nmr" placeholder="Digite o número...">
+            <button onclick="verificarNmr()">Enviar</button>
+            <p id="resposta"></p>
+        </div>
+    </div>
+    <script>
+        function verificarNmr(){
+            const nmr = parseFloat(document.getElementById('nmr').value);
+            let resposta = '';
+
+            if(!nmr){
+                resposta = 'Digite um valor válido'
+            }else if(nmr > 0){
+                let resultado = nmr * 2
+                resposta = `Recebe: ${resultado}`
+            }else if(nmr< 0){
+                let resultado = nmr * 3
+                resposta = `Recebe: ${resultado}`
+            }
+            document.getElementById('resposta').innerHTML = resposta;
+        }
+    </script>
+</body>
+</html>

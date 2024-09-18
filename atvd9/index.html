@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/communStyle.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <p>9) Tendo como dados de entrada a altura e o sexo de uma pessoa, construa um algoritmo que calcule seu
+                peso ideal, utilizando as seguintes fórmulas:</p>
+            <ul>
+                <li>
+                    <p>para homens: (72.7 * h) – 58;</p>
+                </li>
+                <li>
+                    <p>para mulheres: (62.1 * h) – 44.7.</p>
+                </li>
+            </ul>
+            <label for="sexo">Selecione o seu sexo:</label>
+            <select id="sexo">
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+            </select>
+            <label for="altura">Altura:</label>
+            <input type="number" id="altura" placeholder="Digite sua altura...">
+            <button onclick="calcularPesoIdeal()">Enviar</button>
+            <p id="resposta"></p>
+        </div>
+    </div>
+    <script>
+        function calcularPesoIdeal(){
+            const sexo = document.getElementById('sexo').value;
+            const altura = parseFloat(document.getElementById('altura').value);
+            let formula = 0;
+            let resposta = '';
+
+            if(isNaN(altura)){
+                resposta = 'Preencha todos os campos'
+            }else if(sexo === 'M'){
+                formula = (72.7 * altura) - 58;
+                resposta = formula.toFixed(2);
+            }else if(sexo === 'F'){
+                formula = (62.1*altura) -44.7
+                resposta = formula.toFixed(2);
+            }
+            document.getElementById('resposta').innerHTML = resposta
+        }
+    </script>
+</body>
+</html>

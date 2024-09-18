@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/communStyle.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <p>7) Faça um algoritmo que leia uma variável e some 5 caso seja par ou some 8 caso seja ímpar, imprimir o resultado desta operação.</p>
+            <label for="a">A:</label>
+            <input type="number" id="a" placeholder="Digite o valor:">
+            <button onclick="calcularA()">Enviar</button>
+            <p id="resposta"></p>
+        </div>
+    </div>
+    <script>
+        function calcularA(){
+            // Coloquei o parseInt para pegar só a parte inteira para poder ver se é par ou impar
+            let valorParImp = parseInt(document.getElementById('a').value);
+            let a = parseFloat(document.getElementById('a').value)
+            let resposta = '';
+            if(isNaN(valorParImp)){
+                resposta= 'Digite um valor válido'
+            }
+            else if(valorParImp % 2 === 0){
+                resposta = 'valor: '+ (a+5);
+            }else{
+                resposta = 'valor: '+ (a+8);
+            }
+            document.getElementById('resposta').innerHTML = resposta
+        }
+    </script>
+</body>
+</html>

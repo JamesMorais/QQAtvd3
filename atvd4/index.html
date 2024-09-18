@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/communStyle.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <p>4) Faça um algoritmo que leia dois valores inteiros A e B se os valores forem iguais deverá se somar os
+                dois, caso contrário multiplique A por B. Ao final de qualquer um dos cálculos deve-seatribuir o
+                resultado para uma variável C e mostrar seu conteúdo na tela.</p>
+            <label for="a">A:</label>
+            <input type="number" id="a" placeholder="Digite o valor">
+            <label for="b">B:</label>
+            <input type="number" id="b" placeholder="Digite o valor">
+
+            <button onclick="calcularAb()">Enviar</button>
+            <p id="resposta"></p>
+        </div>
+    </div>
+    <script>
+        function calcularAb() {
+            const a = parseInt(document.getElementById('a').value);
+            const b = parseInt(document.getElementById('b').value);
+            let resposta = '';
+            if (isNaN(a) || isNaN(b)) {
+                resposta = 'Digite os valores válidos'
+            } else if (a === b) {
+                let c = a + b;
+                resposta = `Resposta: ${c}`
+            }else {
+                let c = a * b;
+                resposta = `Resposta: ${c}`
+            }
+            document.getElementById('resposta').innerHTML = resposta;
+        }
+    </script>
+</body>
+
+</html>

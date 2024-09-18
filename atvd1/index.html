@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/communStyle.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <p>1) Faça um algoritmo que leia os valores A, B, C e imprima na tela se a soma de A + B é menor que C.</p>
+            <label for="a">A:</label>
+            <input type="number" id="a" min="0" placeholder="Digite o valor...">
+            <label for="b">B:</label>
+            <input type="number" id="b" min="0" placeholder="Digite o valor...">
+            <label for="c">C:</label>
+            <input type="number" id="c" min="0" placeholder="Digite o valor...">
+            <button onclick="calcularSomaAb()">Enviar</button>
+            <p id="resposta"></p>
+        </div>
+    </div>
+    
+    <script>
+        function calcularSomaAb(){
+            const a = parseFloat(document.getElementById('a').value);
+            const b = parseFloat(document.getElementById('b').value);
+            const c = parseFloat(document.getElementById('c').value);
+            let resposta = '';
+            let soma = a + b;
+
+            if(isNaN(a) || isNaN(b) || isNaN(c)){
+                resposta='Preencha todos os valores'
+            }else if(soma < c){
+                resposta = `a soma: ${soma} é menor que o valor de c: ${c}`
+            }else{
+                resposta = `Para o valor ser impresso a soma precisa ser menor que o valor de C`
+            }
+            document.getElementById('resposta').innerHTML = resposta;
+        }
+    </script>
+</body>
+</html>

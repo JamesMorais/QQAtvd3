@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/communStyle.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <p>6) Escreva um algoritmo que lê dois valores booleanos (lógicos) e então determina se ambos são VERDADEIROS ou FALSOS.</p>
+            <label for="a">A:</label>
+            <select id="a">
+                <option value="t">Verdadeiro</option>
+                <option value="f">Falso</option>
+            </select>
+            <label for="b">B:</label>
+            <select id="b">
+                <option value="t">Verdadeiro</option>
+                <option value="f">Falso</option>
+            </select>
+            <button onclick="verificaBoolean()">Enviar</button>
+            <p id="resposta"></p>
+        </div>
+    </div>
+    <script>
+        function verificaBoolean(){
+            let a = document.getElementById('a').value;
+            let b = document.getElementById('b').value;
+            let resposta = '';
+            if(a === 't'){
+                a = true;
+            }else if(a === 'f'){
+                a = false;
+            } 
+            
+            if (b === 't'){
+                b = true;
+            }else if(b === 'f'){
+                b = false;
+            }
+
+            if(a && b){
+                resposta = 'Ambos são verdadeiros!'
+            }else if(!a && !b){
+                resposta = 'Ambos são falsos!'
+            }else{
+                resposta = 'Os valores são diferentes!'
+            }
+
+            document.getElementById('resposta').innerHTML = resposta;
+
+        }
+    </script> 
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/communStyle.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <p>10) O IMC – Indice de Massa Corporal é um critério da Organização Mundial de Saúde para dar uma indicação sobre a condição de peso de uma pessoa adulta. A fórmula é IMC = peso / ( altura )**2 Elabore um algoritmo que leia o peso e a altura de um adulto e mostre sua condição de acordo com a tabela abaixo.</p>
+            <p>IMC em adultos - Condição <br>Abaixo de 18,5 - Abaixo do peso<br>Entre 18,5 e 25 - Peso normal<br>Entre 25 e 30 - Acima do peso<br>Acima de 30 - obeso </p>
+
+            <label for="peso">Peso:</label>
+            <input type="number" id="peso" placeholder="Digite seu peso...">
+            <label for="altura">Altura:</label>
+            <input type="number" id="altura" placeholder="Digite sua altura...">
+            
+            <button onclick="calcularImc()">Enviar</button>
+            <p id="resposta"></p>
+        </div>
+    </div>
+    <script>
+        function calcularImc(){
+            const peso = parseFloat(document.getElementById('peso').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+            let resposta = '';
+
+            if(isNaN(peso) || isNaN(altura)){
+                resposta = 'Preencha todos os campos'
+            }else{
+                let imc = peso / Math.pow(altura, 2);
+                imc = imc.toFixed(1)
+                console.log(imc)
+                if(imc < 18.5){
+                    resposta = 'Abaixo do peso'
+                }else if(imc < 25){
+                    resposta = 'Peso Normal'
+                }else if(imc < 30 ){
+                    resposta = 'acima do peso'
+                }else{
+                    resposta = 'obeso'
+                }
+            }
+            document.getElementById('resposta').innerHTML = 'Resposta do sistema:<br>'+ resposta;
+        }
+    </script>
+</body>
+</html>
